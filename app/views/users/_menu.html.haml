@@ -1,0 +1,15 @@
+%a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+    - if !user_signed_in?
+        = icon("log-in", "Sign in")
+    - else
+        = icon("home", "My account")
+    %ul.dropdown-menu
+        - if user_signed_in?
+            %li= link_to "My profile", edit_user_registration_path
+            %li.divider
+            %li= link_to icon("log-out", "Log out"), destroy_user_session_path, :method => :delete           
+        -else
+            %li=link_to "Sign in", new_user_session_path
+            %li=link_to "Sign up", new_user_registration_path
+
+

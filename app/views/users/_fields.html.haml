@@ -1,0 +1,16 @@
+= input_wrapper "Firstname", true do
+    = f.text_field :firstname, autofocus: true, class: "form-control"
+
+= input_wrapper "Lastname", true do
+    = f.text_field :lastname, autofocus: true, class: "form-control"
+
+= input_wrapper "email", true do
+    = f.email_field :email, autofocus: true, class: "form-control"
+
+= input_wrapper "Password", true do
+    = f.password_field :password, autocomplete: "off", class: "form-control"
+    - unless resource.new_record?
+        %p.help-block Leave blank if you don't want to change it.
+
+= input_wrapper "Password confirmation", true do
+    = f.password_field :password_confirmation, autocomplete: "off", class: "form-control"

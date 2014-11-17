@@ -1,0 +1,7 @@
+.row-fluid#services
+
+= render 'js'
+
+= javascript_tag do 
+	document.getElementById('services').innerHTML = HTMLView.draw();
+

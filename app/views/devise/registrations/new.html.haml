@@ -1,0 +1,12 @@
+= title "Sign up"
+
+= form_for resource, as: resource_name, url: registration_path(resource_name), html: {class: "form-horizontal", role: "form"} do |f| 
+    = devise_error_messages!
+
+    = render partial: "/users/fields", locals: { f: f, resource: resource }
+
+    = f.button "Sign up", :class =>"btn btn-primary btn-devise"
+
+
+
+= render "devise/shared/links" 

@@ -1,0 +1,53 @@
+#post-body
+    %h3 Body
+    %textarea#post-body-content.form-control= @endpoint.post_body
+
+
+= javascript_tag do 
+
+    var endpoint = { parameters: '#{@endpoint.parameters.nil? ? "" : @endpoint.parameters.html_safe }', headers: '#{@endpoint.headers.nil? ? "": @endpoint.headers.html_safe}' };
+
+    = render partial: "template", formats: "js"
+
+    - unless @endpoint.blank?
+        endpoint['id'] = "#{@endpoint.id}";
+        endpoint['name'] =  "#{@endpoint.name}";
+        endpoint['description'] = "#{@endpoint.description.blank? ? '' : CGI.escapeHTML(@endpoint.description)}";
+        $(document).ready(function(){ $("#description").text(endpoint['description']); });
+        endpoint['url'] =  "#{@endpoint.url}";
+        endpoint['method'] =  "#{@endpoint.method}";
+        var params = parseJSON(endpoint.parameters);
+        var headers = parseJSON(endpoint.headers);
+        - if controller.action_name != 'show'
+            document.forms[document.forms.length-1].onsubmit = submitService;
+            document.getElementById('endpoint_url').oninput = input;
+            updateParams(document.getElementById('endpoint_url').value);
+            var i = 0, j = headers.length;
+            var line = document.querySelector('#headers table tr');
+            for(;i<j;i++){line.parentNode.appendChild(createHeaderElement(headers[i]));}
+
+        // model is used to provide the data to build corresponding HTML
+        :plain
+            var model = {
+                name: 'API',
+                version: 0.1,
+                library_id: endpoint.id, // useless
+                responseType: 'json',
+                services: [
+                    {
+                        id: endpoint.id,
+                        name: endpoint.name,
+                        description: endpoint.description,
+                        url: endpoint.url,
+                        method: endpoint.method,
+                        headers: parseJSON(endpoint.headers),
+                        params: parseJSON(endpoint.parameters),
+                        editable: false, // useless
+                        deletable: false // useless
+                    },
+                ]
+            };
+        
+            
+
+    

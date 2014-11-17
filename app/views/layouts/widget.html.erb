@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <title>Endpoints</title>
+    <meta charset='utf-8'>
+    <meta content='IE=Edge,chrome=1' http-equiv='X-UA-Compatible'>
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+  	<%= stylesheet_link_tag    "application", media: "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <title><%= content_for?(:title) ? yield(:title) : "Endpoints" %></title>
+    <style>
+      body {
+        margin-top: 0px;
+        padding-top: 0px;
+      }
+    </style>
+  </head>
+  <body>
+ 
+    <!-- main content goes here -->
+    <div class='container'>
+    	<%= yield %>
+    </div>
+  
+
+  <%= render partial: "layouts/ga" %>
+  </body>
+  
+</html>

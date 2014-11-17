@@ -1,0 +1,13 @@
+= title "My account"
+
+= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "form-horizontal", role: "form" }) do |f| 
+    = devise_error_messages!
+
+    = render partial: "/users/fields", locals: { f: f, resource: resource }
+
+    = input_wrapper "Current password", true do
+        = f.password_field :current_password, autocomplete: "off", class: "form-control"
+        %p.help-block We need your current password to confirm your changes.
+
+    = f.button "Submit", :class =>"btn btn-primary btn-devise"
+

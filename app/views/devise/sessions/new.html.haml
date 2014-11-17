@@ -1,0 +1,21 @@
+= title "Sign in"
+
+= form_for resource, as: resource_name, url: session_path(resource_name), html: {class: "form-horizontal", role:"form"} do |f| 
+
+    = input_wrapper "email", true do
+        = f.email_field :email, autofocus: true, class: "form-control"
+
+    = input_wrapper "Password", true do
+        = f.password_field :password, autocomplete: "off", class: "form-control"
+
+    - if devise_mapping.rememberable? 
+        .remember-me
+            = f.check_box :remember_me
+            Remember me
+
+
+    = f.button "Sign in", :class =>"btn btn-primary btn-devise"
+
+
+
+= render "devise/shared/links" 

@@ -1,0 +1,35 @@
+= title show_all_endpoints? ? "Endpoints" : "My endpoints"
+
+- if @endpoints.blank?
+    .alert.alert-info= "No endpoint exists here yet. #{ link_to "Create a new one", new_endpoint_path } ?".html_safe
+
+- @endpoints.all.each do |endpoint|
+
+    .endpoint
+        %h3
+
+            = endpoint.name
+        %p= endpoint.description
+
+        %p
+            = link_to icon("wrench", "Use"), endpoint, class: "btn btn-primary btn-sm"
+            =# link_to icon("link", "Widget URL"), widget_path(endpoint.public_id), class: "btn btn-primary btn-sm"
+            = link_to icon("export", "Export code"), "", :class => "btn btn-primary btn-sm btn-export", "data-endpoint-id" => endpoint.id
+            - if user_signed_in? && endpoint.belongs_to?(current_user)
+                = link_to icon("edit", "Edit"), edit_endpoint_path(endpoint), class: "btn btn-warning btn-sm"
+                = link_to icon("remove", "Delete"), endpoint, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm"
+        %p
+            %span.method.label.label-primary{class: "label-#{css_method_class(endpoint)}"}= endpoint.method 
+            - if !show_all_endpoints?
+                - if endpoint.published?
+                    %span.label.label-success This endpoint is published.
+                - else 
+                    %span.label.label-warning This endpoint is not published.
+            - else
+                %span.label.label-default= "Published by #{endpoint.user.fullname}."
+        %code{id: "export-#{endpoint.id}"}
+            = render partial: "code", locals: {endpoint: endpoint}
+
+        %hr 
+
+= paginate @endpoints

@@ -1,0 +1,118 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ *= require "butlerui"
+ */
+
+body {
+	font-family: 'Lucida Grande', 'Trebuchet MS', Arial, 'Bitstream Vera Sans', Verdana !important;
+}
+
+h1 {
+ text-shadow: none !important;
+ font-size: 20px !important;
+ font-weight: none !important;
+ /*font-family: OpenSansBold, sans-serif;*/
+ font-family: 'Lucida Grande', 'Trebuchet MS', Arial, 'Bitstream Vera Sans', Verdana !important;
+}
+
+button#submit {
+	margin-top: 15px;
+}
+
+.loading{
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-image: url('/img/ajax-loader.gif')
+}
+
+#services .accordion-heading h5 {
+	overflow: hidden;
+}
+
+.endpoint a {
+	margin-right: 10px;
+}
+
+.endpoint textarea {
+	width: 580px;
+}
+
+.endpoint code {
+	display: none;
+}
+
+span.method {
+	margin-right: 10px;
+}
+
+ul.response {
+	margin-top: 10px;
+}
+
+/* Override Bootstrap 3 font locations */
+@font-face {
+font-family: 'Glyphicons Halflings';
+src: url('/fonts/glyphicons-halflings-regular.eot');
+src: url('/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), 
+url('/fonts/glyphicons-halflings-regular.woff') format('woff'), 
+url('/fonts/glyphicons-halflings-regular.ttf') format('truetype'), 
+url('/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+input#endpoint_show_body {
+	margin-top: 11px;
+}
+
+#post-body {
+	display: none;
+}
+
+#post-body textarea {
+	font-family:Courier New, Courier;
+}
+
+.btn-devise {
+	margin-top: 13px;
+	margin-bottom: 13px;
+}
+
+input#endpoint_published {
+	margin-top: 10px;
+}
+
+p.help-block {
+	font-size: 12px;
+}
+
+
+span.options {
+	font-size: 12px;
+	margin-left: 5px;
+}
+textarea.wide {
+	width: 1000px;
+}
+
+.endpoint textarea {
+	margin-top: 5px;
+}
+
+.form-group.required .control-label:after {
+  content: " *";
+  color:red;
+  font-weight: bold;
+}
+
+form#request-sender {
+	margin-top: 5px;
+}

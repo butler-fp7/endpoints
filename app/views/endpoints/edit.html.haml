@@ -1,0 +1,10 @@
+%h1= "Edit an endpoint <span class='options'>(or #{link_to 'use it', @endpoint}, or #{link_to 'export it', '', class: 'btn-export', 'data-endpoint-id' => @endpoint.public_id})</span>".html_safe
+
+.endpoint
+	%code{id: "export-#{@endpoint.public_id}"}
+		= render partial: "code", locals: {endpoint: @endpoint}
+
+
+= render 'form'
+
+= render 'js'

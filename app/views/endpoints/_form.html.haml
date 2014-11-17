@@ -1,0 +1,56 @@
+= form_for @endpoint, html: {class: "form-horizontal", role:"form"} do |f| 
+
+    - if @endpoint.errors.any?
+        .alert.alert-danger
+            %p The endpoint has not been saved. The following errors have been detected:
+            %ul.errors
+                - @endpoint.errors.full_messages.each do |msg|
+                    %li= msg 
+  
+    = input_wrapper "Name", true do
+        = f.text_field :name, placeholder: "Name of the endpoint", class: "form-control"
+    = input_wrapper "Description", true do
+        = f.text_area :description, as: "text", class: "form-control wysihtml5", rows: 4
+    = input_wrapper "HTTP Verb", true do
+        = f.select :method, Endpoint::HTTP_VERB, {}, class: "form-control"
+    = input_wrapper "Published ?", false, "When this box is checked, the endpoint is made public." do
+        = f.check_box :published
+
+    #show-body-wrapper{style: "#{'display: none;' unless @endpoint.post? }"}
+        = input_wrapper "Show body field", false do
+            = f.check_box :show_body
+    = input_wrapper "URL", true, "Wrap URL parameters in braces. Example: http://www.example.com/api/{x}/get" do    
+        = f.text_field :url, class: "form-control input-xlarge"
+    = f.hidden_field :parameters
+    = f.hidden_field :headers
+    = f.hidden_field :post_body
+    
+
+    #params
+        %h3 Parameters
+        %table.table.table-striped.table-condensed.operation-params
+            %tr.muted
+                %th Name
+                %th Value
+                %th Description
+                %th Type
+                %th
+        %button.btn{type: "button", onclick: "addParameter()"} 
+            = icon "plus", "Add parameter"
+
+
+    #headers
+        %h3 HTTP Headers
+        %table.table.table-striped.table-condensed.operation-headers
+            %tr.muted
+                %th Name
+                %th Value
+                %th Description
+                %th
+        %button.btn{type:"button", onclick: "addHeader()"}
+            = icon "plus", "Add a HTTP header"
+
+    = f.button "#{@endpoint.new_record? ? 'Create this endpoint' : 'Update'}", :class =>"btn btn-primary", id: "submit"
+
+
+
