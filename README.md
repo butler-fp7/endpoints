@@ -3,7 +3,7 @@ Endpoints
 
 Endpoints is a web application that aims at documenting web services. Basically, through a simple web interface, it gives developers a tool to describe their API, by providing the endpoint and the parameters to be sent in the request. It is documented on the [Open Platforms website](http://open-platforms.eu/library/endpoints/).
 
-See it in action: http://endpoints.open-platforms.eu
+See it in action: http://endpoints.open-platforms.eu/.
 
 Endpoints has been mainly developed with the following stack:
 
@@ -17,6 +17,7 @@ Endpoints has been mainly developed with the following stack:
 * [omniauth-google-oauth2](https://github.com/zquestz/omniauth-google-oauth2)
 * [kaminari](https://github.com/amatsuda/kaminari)
 * [Bootstrap](http://getbootstrap.com/) (v2.3.1)
+* [rails-settings-cached](https://github.com/huacnlee/rails-settings-cached)
 
 ## Installation
 
@@ -44,7 +45,7 @@ The endpoints app can be deployed through [Capistrano](https://github.com/capist
 
 ## Todo 
 
-* Tests.
+* Tests
 
 ## Contact
 

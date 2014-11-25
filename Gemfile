@@ -49,3 +49,4 @@ gem 'devise'
 gem "omniauth-google-oauth2"
 gem 'kaminari'
 gem 'exception_notification', '~> 4.0.1'
+gem "rails-settings-cached", "0.4.1"
