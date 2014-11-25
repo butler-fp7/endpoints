@@ -29,7 +29,7 @@ Endpoints has been mainly developed with the following stack:
 
 ### Google OAuth2
 
-Users can be authentified through their Google account. This is made possible thanks to the [Devise](https://github.com/plataformatec/devise), [Omniauth](https://github.com/intridea/omniauth) and [omniauth-google-oauth2](https://github.com/zquestz/omniauth-google-oauth2) gems. In order to enable the Google OAuth2 authentification, OAuth 2.0 credentials (client ID and client secret) have to be requested on the [Google Developers Console](https://console.developers.google.com/).
+Users can be authentified through their Google account. This is made possible thanks to the [Devise](https://github.com/plataformatec/devise), [Omniauth](https://github.com/intridea/omniauth) and [omniauth-google-oauth2](https://github.com/zquestz/omniauth-google-oauth2) gems. In order to enable the Google OAuth2 authentification, OAuth 2.0 credentials (client ID and client secret) have to be requested on the [Google Developers Console](https://console.developers.google.com/) and used to configure Devise/OmniAuth (see the `config.omniauth :google_oauth2` call at the end of the [devise.rb](https://github.com/butler-fp7/endpoints/blob/master/config/initializers/devise.rb) file).
 
 ## Deployment
 
