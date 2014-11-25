@@ -48,7 +48,7 @@ The endpoints app can be deployed through [Capistrano](https://github.com/capist
 
 ## Contact
 
-[Fabrice Clari](mailto:f.clari@inno-group.com)
+[Fabrice Clari](mailto:f.clari@inno-group.com) ([inno TSD](http://www.inno-group.com))
 
 ## Licence
 
