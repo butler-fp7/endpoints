@@ -46,4 +46,11 @@ The endpoints app can be deployed through [Capistrano](https://github.com/capist
 
 * Tests.
 
+## Contact
+
+[Fabrice Clari](mailto:f.clari@inno-group.com)
+
+## Licence
+
+The endpoints app is released under the [MIT License](http://opensource.org/licenses/MIT).
 
