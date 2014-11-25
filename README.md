@@ -34,6 +34,14 @@ Users can be authentified through their Google account. This is made possible th
 
 The endpoints app can be deployed through [Capistrano](https://github.com/capistrano/capistrano). The `deploy.rb` file located in the config folder needs to be customized. 
 
+## Screenshots
+
+![Edit an endpoint](https://raw.githubusercontent.com/butler-fp7/endpoints/master/screnshots/endpoints_edit1.png)
+![Export an endpoint](https://raw.githubusercontent.com/butler-fp7/endpoints/master/screnshots/endpoints_export1.png)
+![List](https://raw.githubusercontent.com/butler-fp7/endpoints/master/screnshots/endpoints_list1.png)
+![Use an endpoint](https://raw.githubusercontent.com/butler-fp7/endpoints/master/screnshots/endpoints_test_11.png)
+![Use an endpoint](https://raw.githubusercontent.com/butler-fp7/endpoints/master/screnshots/endpoints_test_21.png)
+
 ## Todo 
 
 * Tests.
