@@ -35,6 +35,12 @@ Users can be authentified through their Google account. This is made possible th
 
 The endpoints app can be deployed through [Capistrano](https://github.com/capistrano/capistrano). The `deploy.rb` file located in the config folder needs to be customized. 
 
+### Google Analytics (or other analytics app)
+
+The Google Analytics tracking code can be inserted on every page. It has to be set as a setting ([rails-settings-cached](https://github.com/huacnlee/rails-settings-cached)) stored in the database. To setup the tracking code, fire a console (`bundle exec rails c`) and set the code with the following command:
+`Settings.google_analytics_tracking_code = "<script> YOUR_TRACKING_CODE_HERE </script>"`
+Please note that this works with any tracking code. 
+
 ## Screenshots
 
 ![Edit an endpoint](https://raw.githubusercontent.com/butler-fp7/endpoints/master/screnshots/endpoints_edit1.png)
