@@ -49,6 +49,9 @@ class EndpointsController < ApplicationController
   	def index
   		@show_all = params[:type] != :account
   		@endpoints =  @show_all == true ? Endpoint.published.order(:name).page(params[:page]) : current_user.endpoints.order(:name).page(params[:page])
+  		unless params[:q].blank?
+  			@endpoints = @endpoints.where("name LIKE :query OR description LIKE :query", query: "%#{params[:q]}%")
+  		end
   	end
 
   	def destroy

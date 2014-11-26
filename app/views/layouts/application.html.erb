@@ -34,6 +34,14 @@
               <%= render "/users/menu" %>
             </li>
           </ul>
+
+          <%= form_tag request.path, method: :get, class: "navbar-form navbar-left", role: "search" do %>
+            <div class="form-group">
+              <%= text_field_tag :q, params[:q], class: "form-control", placeholder: "Keywords" %>
+            </div>
+            <%= button_tag "Search", name: nil, class: "btn btn-default" %>
+          <% end %>
+
         </div><!--/.nav-collapse -->
       </div>
     </div>
@@ -45,10 +53,12 @@
       <% flash.each do |type, message| %>
         <div class="alert <%= bootstrap_class_for(type) %> fade in">
           <button class="close" data-dismiss="alert">×</button>
-        <%= message %>
-      </div>
-<% end %>
+          <%= message %>
+        </div>
+      <% end %>
+
     	<%= yield %>
+
     </div>
   
   <%= render partial: "layouts/ga" %>
