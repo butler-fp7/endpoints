@@ -18,6 +18,7 @@ Endpoints has been mainly developed with the following stack:
 * [kaminari](https://github.com/amatsuda/kaminari)
 * [Bootstrap](http://getbootstrap.com/) (v2.3.1)
 * [rails-settings-cached](https://github.com/huacnlee/rails-settings-cached)
+* [exception_notification](https://github.com/smartinez87/exception_notification)
 
 ## Installation
 
