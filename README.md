@@ -36,6 +36,14 @@ Users can be authentified through their Google account. This is made possible th
 
 The endpoints app can be deployed through [Capistrano](https://github.com/capistrano/capistrano). The `deploy.rb` file located in the config folder needs to be customized. 
 
+### Exception Notification
+
+Endpints uses the [exception_notification](https://github.com/smartinez87/exception_notification) gem to report notifications in production. In order to use it, the config/production.rb file needs to be configured with the sender address (the email address used to send messages) and the list of recipients. These values can be set either as environment variables or directly in the production.rb file. 
+
+### Host
+
+The host where is application is deployed needs to be set in the config/production.rb (see `config.action_mailer.default_url_options`).
+
 ### Google Analytics (or other analytics apps)
 
 The Google Analytics tracking code can be inserted on every page. It has to be set as a setting ([rails-settings-cached](https://github.com/huacnlee/rails-settings-cached)) stored in the database. To setup the tracking code, fire a console (`bundle exec rails c`) and set the code with the following command:

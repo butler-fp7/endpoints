@@ -77,13 +77,13 @@ Endpoints::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
-  config.action_mailer.default_url_options = { host: 'endpoints.open-platforms.eu', port: 80 }
+  config.action_mailer.default_url_options = { host: 'ENV["ENDPOINTS_HOST"]', port: 80 }
 
   config.middleware.use ExceptionNotification::Rack,
     :email => {
       :email_prefix => "[Endpoints] ",
-      :sender_address => %{"Endpoints notifier" <endpoints@inno-projects.net>},
-      :exception_recipients => %w{f.clari@inno-group.com}
+      :sender_address => %{"Endpoints notifier" <ENV["ENDPOINTS_NOTIFIER_EMAIL"]>},
+      :exception_recipients => %w{ENV["ENDPOINTS_EXCEPTIONS_RECIPIENTS"]}
   }
 
 end
